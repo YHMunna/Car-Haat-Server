@@ -132,6 +132,11 @@ async function run() {
       res.json(result);
       console.log(result);
     });
+    ////Get manage orders from order collection
+    app.get("/manageOrders", async (req, res) => {
+      const result = await ordersCollection.find({}).toArray();
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
